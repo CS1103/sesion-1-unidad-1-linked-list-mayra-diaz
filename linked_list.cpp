@@ -5,15 +5,12 @@
 #include "linked_list.h"
 
 utec::first::linked_list_t::linked_list_t(const utec::linked_list_t &other){
-    size_ = 1;
+    size_ = 0;
     int s = other.size();
     auto actual = other.getHead();
-    head = new node_t{actual->value_, nullptr};
-    tail = head;
-
-    while(--s){
-        actual = actual->next_;
+    while(s--){
         this->push_back(actual->value_);
+        actual = actual->next_;
     }
 }
 
@@ -26,15 +23,13 @@ utec::linked_list_t &utec::first::linked_list_t::operator=(const utec::linked_li
         while(size_--)
             this->pop_back();
     }
-    size_ = 1;
+    size_ = 0;
     int s = other.size();
     auto actual = other.getHead();
-    head = new node_t{actual->value_, nullptr};
-    tail = head;
 
-    while(--s){
-        actual = actual->next_;
+    while(s--){
         this->push_back(actual->value_);
+        actual = actual->next_;
     }
     return *this;
 }
@@ -46,16 +41,16 @@ utec::linked_list_t &utec::first::linked_list_t::operator=(utec::linked_list_t &
 void utec::first::linked_list_t::push_front(int value) {
     head = new node_t{value, head};
     if (tail == nullptr) tail = head;
-    tail->next_ = nullptr;
     size_++;
 }
 
 void utec::first::linked_list_t::push_back(int value) {
     auto aux = new node_t{value, nullptr};
-    if (head == nullptr) head = tail;
-    tail->next_ = aux;
-    tail = aux;
-    tail->next_ = nullptr;
+    if (tail == nullptr) head = tail = aux;
+    else{
+        tail->next_ = aux;
+        tail = aux;
+    }
     size_++;
 }
 
