@@ -1,0 +1,3 @@
+/home/mayra/POO-II-Git-Hub/sesion-1-unidad-1-linked-list-mayra-diaz/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/mayra/POO-II-Git-Hub/sesion-1-unidad-1-linked-list-mayra-diaz/cmake-build-debug/CMakeFiles/uno.dir
+/home/mayra/POO-II-Git-Hub/sesion-1-unidad-1-linked-list-mayra-diaz/cmake-build-debug/CMakeFiles/edit_cache.dir

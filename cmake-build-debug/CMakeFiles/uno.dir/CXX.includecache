@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/mayra/POO-II-Git-Hub/sesion-1-unidad-1-linked-list-mayra-diaz/linked_list.cpp
+linked_list.h
+/home/mayra/POO-II-Git-Hub/sesion-1-unidad-1-linked-list-mayra-diaz/linked_list.h
+
+/home/mayra/POO-II-Git-Hub/sesion-1-unidad-1-linked-list-mayra-diaz/linked_list.h
+cctype
+-
+utility
+-
+string
+-
+iostream
+-
+
+/home/mayra/POO-II-Git-Hub/sesion-1-unidad-1-linked-list-mayra-diaz/main.cpp
+iostream
+-
+string
+-
+cassert
+-
+linked_list.h
+/home/mayra/POO-II-Git-Hub/sesion-1-unidad-1-linked-list-mayra-diaz/linked_list.h
+
