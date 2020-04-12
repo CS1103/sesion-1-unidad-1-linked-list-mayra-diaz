@@ -38,6 +38,10 @@ utec::linked_list_t &utec::first::linked_list_t::operator=(const utec::linked_li
 }
 
 utec::linked_list_t &utec::first::linked_list_t::operator=(utec::linked_list_t &&other) noexcept {
+    if (size_ != 0){
+        while(size_--)
+            this->pop_back();
+    }
     size_ = other.size();
     head = other.getHead();
     tail = other.getTail();
