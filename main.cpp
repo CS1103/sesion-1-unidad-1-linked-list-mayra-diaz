@@ -44,11 +44,15 @@ int main() {
 
     //Verificar insert
     l_list.insert(2, 15);
-    assert(l_list.size() == 6);
-    assert(l_list.complete_list() == " 4 3 15 2 1 0");
+    l_list.insert(0, 10);
+    l_list.insert(l_list.size(), 8);
+    assert(l_list.size() == 8);
+    assert(l_list.complete_list() == " 10 4 3 15 2 1 0 8");
 
     //Verificar erase
-    l_list.erase(2);
+    l_list.erase(3);
+    l_list.erase(0);
+    l_list.erase(l_list.size());
     assert(l_list.size() == 5);
     assert(l_list.complete_list() == " 4 3 2 1 0");
 
@@ -60,6 +64,7 @@ int main() {
     auto copy_1(l_list);
     assert(l_list.complete_list() == copy_1.complete_list());
 
+
     //sobrecarga del operador = con otro linked_list
     auto operator_1 = l_list;
     assert(l_list.complete_list() == operator_1.complete_list());
@@ -68,18 +73,19 @@ int main() {
     operator_1 = copy_1;
     assert(copy_1.complete_list() == operator_1.complete_list());
 
-    /*
+
     //copia de otro linked_list usando MOVE
     string moved_1 = copy_1.complete_list();
     auto copy_2 = move(copy_1);
     assert(moved_1 == copy_2.complete_list());
 
+
     //sobrecarga del operador = con otro linked_list usando MOVE
     string moved_2 = operator_1.complete_list();
     auto operator_2 = move(operator_1);
     assert(moved_2 == copy_2.complete_list());
-    */
 
-    cout << "\nEjecución exitosa";
+
+    cout << "Ejecución exitosa";
     return EXIT_SUCCESS;
 }

@@ -15,7 +15,10 @@ utec::first::linked_list_t::linked_list_t(const utec::linked_list_t &other){
 }
 
 utec::first::linked_list_t::linked_list_t(utec::linked_list_t &&other) noexcept{
-
+    size_ = other.size();
+    head = other.getHead();
+    tail = other.getTail();
+    other.clear();
 }
 
 utec::linked_list_t &utec::first::linked_list_t::operator=(const utec::linked_list_t &other) {
@@ -35,6 +38,10 @@ utec::linked_list_t &utec::first::linked_list_t::operator=(const utec::linked_li
 }
 
 utec::linked_list_t &utec::first::linked_list_t::operator=(utec::linked_list_t &&other) noexcept {
+    size_ = other.size();
+    head = other.getHead();
+    tail = other.getTail();
+    other.clear();
     return  *this;
 }
 
@@ -137,10 +144,9 @@ string utec::first::linked_list_t::complete_list() {
     return list;
 }
 
-/*
-utec::first::linked_list_t::~linked_list_t() {
-    while (index--)
-        this->pop_back();
+void utec::first::linked_list_t::clear() {
+    head = nullptr;
+    tail = nullptr;
+    size_ = 0;
 }
-*/
 

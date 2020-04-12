@@ -26,8 +26,9 @@ namespace utec {
             node_t* tail = nullptr;
             size_t size_ = 0;
 
-
             node_t* p_item(size_t index) const ;
+            void clear();
+
         public:
             //constructores
             linked_list_t() = default;
