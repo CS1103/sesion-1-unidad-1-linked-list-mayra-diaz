@@ -17,7 +17,7 @@ utec::first::linked_list_t::linked_list_t(const utec::linked_list_t &other){
     }
 }
 
-utec::first::linked_list_t::linked_list_t(utec::linked_list_t &&other) noexcept {
+utec::first::linked_list_t::linked_list_t(utec::linked_list_t &&other) noexcept{
 
 }
 
@@ -60,7 +60,11 @@ void utec::first::linked_list_t::push_back(int value) {
 }
 
 void utec::first::linked_list_t::insert(size_t index, int value) {
-    if (head == tail){
+    if (index == 0)
+        this->push_front(value);
+    else if (index == size_)
+        this->push_back(value);
+    else if (head == tail){
         head = new node_t{value, tail};
         if (tail == nullptr) tail = head;
     }
@@ -140,7 +144,7 @@ string utec::first::linked_list_t::complete_list() {
 
 /*
 utec::first::linked_list_t::~linked_list_t() {
-    while(size_--)
+    while (index--)
         this->pop_back();
 }
 */

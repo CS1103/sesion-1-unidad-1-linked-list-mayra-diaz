@@ -5,74 +5,80 @@
 
 using namespace std;
 int main() {
-    utec::linked_list_t ll{};
+    utec::linked_list_t l_list{};
 
     //Probar el metodo push_front;
     for(int i=0; i<10; ++i){
-        ll.push_front(i);
+        l_list.push_front(i);
     }
-    assert(ll.complete_list() == " 9 8 7 6 5 4 3 2 1 0");
+    assert(l_list.complete_list() == " 9 8 7 6 5 4 3 2 1 0");
 
 
     //Verificar tamaño
-    assert(ll.size() == 10);
+    assert(l_list.size() == 10);
 
 
     //Verificar pop_front
     for(int i=0; i<5; ++i){
-        ll.pop_front();
+        l_list.pop_front();
     }
-    assert(ll.size() ==5);
-    assert(ll.complete_list() == " 4 3 2 1 0");
+    assert(l_list.size() == 5);
+    assert(l_list.complete_list() == " 4 3 2 1 0");
 
 
     //Probar el metodo push_back;
     for(int i=5; i<10; ++i){
-        ll.push_back(i);
+        l_list.push_back(i);
     }
-    assert(ll.size()==10);
-    assert(ll.complete_list() == " 4 3 2 1 0 5 6 7 8 9");
+    assert(l_list.size() == 10);
+    assert(l_list.complete_list() == " 4 3 2 1 0 5 6 7 8 9");
 
 
     //Verificar pop_back
     for(int i=0; i<5; ++i){
-        ll.pop_back();
+        l_list.pop_back();
     }
-    assert(ll.size() ==5);
-    assert(ll.complete_list() == " 4 3 2 1 0");
+    assert(l_list.size() == 5);
+    assert(l_list.complete_list() == " 4 3 2 1 0");
 
 
     //Verificar insert
-    ll.insert(2, 15);
-    assert(ll.size() ==6);
-    assert(ll.complete_list() == " 4 3 15 2 1 0");
+    l_list.insert(2, 15);
+    assert(l_list.size() == 6);
+    assert(l_list.complete_list() == " 4 3 15 2 1 0");
 
     //Verificar erase
-    ll.erase(2);
-    assert(ll.size() ==5);
-    assert(ll.complete_list() == " 4 3 2 1 0");
+    l_list.erase(2);
+    assert(l_list.size() == 5);
+    assert(l_list.complete_list() == " 4 3 2 1 0");
 
 
 
     //Verificar Construcctores
-    //copia de otro linked_list
-    utec::linked_list_t c1(ll);
-    assert(ll.complete_list() == c1.complete_list());
 
-    //copia de otro linked_list usando MOVE
-    //utec::linked_list_t c2(&&ll);
-    //assert(ll.complete_list() == c2.complete_list());
+    //copia de otro linked_list
+    auto copy_1(l_list);
+    assert(l_list.complete_list() == copy_1.complete_list());
 
     //sobrecarga del operador = con otro linked_list
-    utec::linked_list_t c3 = ll;
-    assert(ll.complete_list() == c3.complete_list());
+    auto operator_1 = l_list;
+    assert(l_list.complete_list() == operator_1.complete_list());
 
-    c1.push_back(7);
-    c3 = c1;
-    assert(c1.complete_list() == c3.complete_list());
+    copy_1.push_back(7);
+    operator_1 = copy_1;
+    assert(copy_1.complete_list() == operator_1.complete_list());
+
+    /*
+    //copia de otro linked_list usando MOVE
+    string moved_1 = copy_1.complete_list();
+    auto copy_2 = move(copy_1);
+    assert(moved_1 == copy_2.complete_list());
 
     //sobrecarga del operador = con otro linked_list usando MOVE
-    //utec::linked_list_t c4 = ll;
+    string moved_2 = operator_1.complete_list();
+    auto operator_2 = move(operator_1);
+    assert(moved_2 == copy_2.complete_list());
+    */
 
     cout << "\nEjecución exitosa";
     return EXIT_SUCCESS;
