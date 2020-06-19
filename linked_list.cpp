@@ -154,6 +154,7 @@ void utec::first::linked_list_t::clear() {
     size_ = 0;
 }
 
+/*
 utec::first::linked_list_t::~linked_list_t() {
     auto aux = this->getHead();
     while (aux!= nullptr){
@@ -163,5 +164,5 @@ utec::first::linked_list_t::~linked_list_t() {
     }
     delete head;
     this->clear();
-}
+}*/
 

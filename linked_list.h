@@ -38,7 +38,7 @@ namespace utec {
             linked_list_t& operator=(linked_list_t&& other) noexcept ;
 
             //destructor
-            virtual ~linked_list_t();
+            virtual ~linked_list_t() = default;
 
             //add operations
             void push_front(int value);
